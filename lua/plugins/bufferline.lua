@@ -4,7 +4,6 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' }, -- For icons support
   config = function()
     vim.opt.termguicolors = true -- Enable terminal GUI colors
-
     require('bufferline').setup {
       options = {
         diagnostics = 'nvim_lsp', -- Enable LSP diagnostics
