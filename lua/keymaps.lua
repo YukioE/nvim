@@ -12,6 +12,10 @@ Map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]u
 
 Map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+Map('n', '<C-a>', function()
+  vim.cmd '%y+'
+end, { desc = 'yank whole Buffer to system clipboard' })
+
 -- moving focus between windows
 Map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 Map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
@@ -35,11 +39,12 @@ Map('t', '<C-Left>', '<cmd>vertical resize -2<CR>')
 Map('t', '<C-Right>', '<cmd>vertical resize +2<CR>')
 
 -- window management
-Map('n', '<leader>bV', '<C-W>s', { desc = 'Split Window Below' })
-Map('n', '<leader>bv', '<C-W>v', { desc = 'Split Window Right' })
+-- use native commands (CTRL s, v, q)
+-- Map('n', '<leader>bV', '<C-W>s', { desc = 'Split Window Below' })
+-- Map('n', '<leader>bv', '<C-W>v', { desc = 'Split Window Right' })
+-- Map('n', '<leader>bw', '<C-W>q', { desc = 'Delete Window' })
 Map('n', '<leader>bM', '<C-W>|<C-W>_', { desc = 'maximize Window' })
 Map('n', '<leader>bm', '<C-W>=', { desc = 'size Windows equally' })
-Map('n', '<leader>bw', '<C-W>q', { desc = 'Delete Window' })
 
 -- buffer utils
 local function delete_buffer()
@@ -65,9 +70,14 @@ local function delete_buffer()
   end
 end
 
-Map('n', '<S-h>', '<cmd>bprevious<cr>', { desc = 'Prev Buffer' })
-Map('n', '<S-l>', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
+Map('n', '<S-h>', '<cmd>bprevious<cr>', { desc = 'prev Buffer' })
+Map('n', '<S-l>', '<cmd>bnext<cr>', { desc = 'next Buffer' })
 Map('n', '<leader>bd', delete_buffer, { desc = 'close [B]uffer' })
+
+-- saving & quitting
+Map('n', '<C-s>', ':w<CR>', { desc = 'write Buffer' })
+Map('n', '<Leader>qq', ':wqa!<CR>', { desc = 'quit all with saving' })
+Map('n', '<Leader>qQ', ':qa!<CR>', { desc = 'quit all without saving' })
 
 -- moving lines up/down/left/right in visual mode
 Map('v', 'J', ":m '>+1<CR>gv=gv")
