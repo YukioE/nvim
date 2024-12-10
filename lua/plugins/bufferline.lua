@@ -18,7 +18,7 @@ return {
         end,
         offsets = {
           {
-            filetype = 'NvimTree', -- Add an offset for NvimTree
+            filetype = 'neo-tree', -- Add an offset for NvimTree
             text = 'File Explorer', -- Display name
             text_align = 'left', -- Align text to the left
             separator = true, -- Add a separator between the file explorer and buffers
