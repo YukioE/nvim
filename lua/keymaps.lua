@@ -10,7 +10,7 @@ Map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 Map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
-Map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+Map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', { desc = 'start Markdown preview' })
 
 Map('n', '<C-a>', function()
   vim.cmd '%y+'
@@ -39,10 +39,7 @@ Map('t', '<C-Left>', '<cmd>vertical resize -2<CR>')
 Map('t', '<C-Right>', '<cmd>vertical resize +2<CR>')
 
 -- window management
--- use native commands (CTRL s, v, q)
--- Map('n', '<leader>bV', '<C-W>s', { desc = 'Split Window Below' })
--- Map('n', '<leader>bv', '<C-W>v', { desc = 'Split Window Right' })
--- Map('n', '<leader>bw', '<C-W>q', { desc = 'Delete Window' })
+-- use native commands (CTRL w + s, v, q) for splitting / deleting windows
 Map('n', '<leader>bM', '<C-W>|<C-W>_', { desc = 'maximize Window' })
 Map('n', '<leader>bm', '<C-W>=', { desc = 'size Windows equally' })
 
@@ -76,14 +73,18 @@ Map('n', '<leader>bd', delete_buffer, { desc = 'close [B]uffer' })
 
 -- saving & quitting
 Map('n', '<C-s>', ':w<CR>', { desc = 'write Buffer' })
-Map('n', '<Leader>qq', ':wqa!<CR>', { desc = 'quit all with saving' })
-Map('n', '<Leader>qQ', ':qa!<CR>', { desc = 'quit all without saving' })
+Map('n', '<leader>qq', ':wqa!<CR>', { desc = 'quit all with saving' })
+Map('n', '<leader>qQ', ':qa!<CR>', { desc = 'quit all without saving' })
 
 -- moving lines up/down/left/right in visual mode
 Map('v', 'J', ":m '>+1<CR>gv=gv")
 Map('v', 'K', ":m '<-2<CR>gv=gv")
 Map('v', '<', '<gv')
 Map('v', '>', '>gv')
+
+-- Terminal
+Map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+Map('n', '<leader>tt', ':ter<CR>', { desc = 'open [T]erminal' })
 
 -- highlight yanking
 vim.api.nvim_create_autocmd('TextYankPost', {

@@ -16,6 +16,9 @@ return {
         nvimtree = true,
         treesitter = true,
       },
+      custom_highlights = function(colors)
+        return {}
+      end,
     }
     vim.cmd.colorscheme 'catppuccin' -- Apply the colorscheme
   end,
