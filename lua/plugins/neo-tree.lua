@@ -15,6 +15,8 @@ return {
   },
   opts = {
     filesystem = {
+      follow_current_file = true,
+      use_libuv_file_watcher = true,
       window = {
         mappings = {
           ['\\'] = 'close_window',
@@ -22,4 +24,14 @@ return {
       },
     },
   },
+  init = function()
+    require('neo-tree').setup {
+      sync_root_with_cwd = true,
+      respect_buf_cwd = true,
+      update_focused_file = {
+        enable = true,
+        update_root = true,
+      },
+    }
+  end,
 }
