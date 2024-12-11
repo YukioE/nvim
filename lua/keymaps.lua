@@ -10,8 +10,6 @@ Map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 Map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
-Map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', { desc = 'start Markdown preview' })
-
 Map('n', '<C-a>', function()
   vim.cmd '%y+'
 end, { desc = 'yank whole Buffer to system clipboard' })
@@ -85,6 +83,9 @@ Map('v', '>', '>gv')
 -- Terminal
 Map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 Map('n', '<leader>tt', ':ter<CR>', { desc = 'open [T]erminal' })
+
+Map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', { desc = 'start Markdown preview' })
+Map('n', '<leader>so', ':ObsidianQuickSwitch<CR>', { desc = 'open Quick switcher' })
 
 -- highlight yanking
 vim.api.nvim_create_autocmd('TextYankPost', {
