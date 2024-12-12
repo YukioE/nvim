@@ -4,7 +4,7 @@ return {
   priority = 1000, -- Load before other plugins to set colorscheme
   config = function()
     require('catppuccin').setup {
-      flavour = 'macchiato', -- Set the default flavour to macchiato
+      flavour = 'latte', -- Set the default flavour to macchiato
       background = {
         light = 'latte',
         dark = 'macchiato',
