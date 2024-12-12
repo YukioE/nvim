@@ -25,6 +25,9 @@ return {
     },
   },
   init = function()
+    -- set cwd to home dir on startup
+    vim.cmd 'cd ~'
+
     require('neo-tree').setup {
       sync_root_with_cwd = true,
       respect_buf_cwd = true,
