@@ -87,8 +87,12 @@ Map('n', '<leader>tt', ':ter<CR>', { desc = 'open [T]erminal' })
 -- git mergetool
 Map('n', '<leader>mh', '<cmd>diffget //2<CR>', { desc = 'accept LOCAL change (LEFT)' })
 Map('n', '<leader>ml', '<cmd>diffget //3<CR>', { desc = 'accept REMOTE change (RIGHT)' })
-Map('n', '<leader>md', '<cmd>Ghdiffsplit :2|Gvdiffsplit :3<CR>', { desc = 'open 3 way merge tool' })
 Map('n', '<leader>mw', '<cmd>Gwrite<CR>', { desc = 'write and stage file' })
+Map('n', '<leader>md', function()
+  vim.cmd 'Ghdiffsplit :2|Gvdiffsplit :3'
+  vim.cmd 'wincmd k'
+  vim.api.nvim_feedkeys(']c', 'n', true)
+end, { desc = 'Open 3-way merge tool' })
 
 -- Markdown
 Map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', { desc = 'start Markdown preview' })
