@@ -18,6 +18,12 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 -- vim.opt.shell = 'wt.exe'
 
+-- Neovide
+if vim.g.neovide then
+  vim.o.guifont = 'JetBrainsMono Nerd Font:h14'
+  vim.g.neovide_scale_factor = 0.8
+end
+
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
