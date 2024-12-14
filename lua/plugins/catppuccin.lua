@@ -29,5 +29,6 @@ return {
 
     -- Apply the Catppuccin colorscheme after configuring
     vim.cmd.colorscheme 'catppuccin'
+    vim.cmd [[highlight Visual cterm=NONE gui=NONE]]
   end,
 }

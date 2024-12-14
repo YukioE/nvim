@@ -71,8 +71,7 @@ Map('n', '<leader>bd', delete_buffer, { desc = 'close [B]uffer' })
 
 -- saving & quitting
 Map('n', '<C-s>', ':w<CR>', { desc = 'write Buffer' })
-Map('n', '<leader>qq', ':wqa!<CR>', { desc = 'quit all with saving' })
-Map('n', '<leader>qQ', ':qa!<CR>', { desc = 'quit all without saving' })
+Map('n', '<leader>qq', ':qa!<CR>', { desc = 'quit all without saving' })
 
 -- moving lines up/down/left/right in visual mode
 Map('v', 'J', ":m '>+1<CR>gv=gv")
@@ -82,7 +81,8 @@ Map('v', '>', '>gv')
 
 -- Terminal
 Map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-Map('n', '<leader>tt', ':ter<CR>', { desc = 'open [T]erminal' })
+Map('n', '<leader>tt', '<cmd>ter<CR>', { desc = 'open [T]erminal' })
+Map('n', '<leader>tl', '<cmd>ter lazygit<CR>an<CR>', { desc = 'open lazygit in terminal' })
 
 -- git mergetool
 Map('n', '<leader>mh', '<cmd>diffget //2<CR>', { desc = 'accept LOCAL change (LEFT)' })
