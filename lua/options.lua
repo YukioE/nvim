@@ -16,6 +16,10 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
 -- vim.opt.shell = 'wt.exe'
 
 -- Neovide
@@ -27,5 +31,3 @@ end
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
-
--- vim: ts=2 sts=2 sw=2 et
