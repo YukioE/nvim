@@ -22,7 +22,12 @@ return {
           TelescopeBorder = { fg = colors.base, bg = colors.base },
           TelescopePreviewBorder = { fg = colors.base, bg = colors.base },
           TelescopeResultsBorder = { fg = colors.base, bg = colors.base },
-          TelescopePromptBorder = { fg = colors.base, bg = colors.base },
+          TelescopePromptBorder = { fg = colors.surface0, bg = colors.surface0 },
+          TelescopePromptNormal = { fg = colors.text, bg = colors.surface0 },
+          TelescopePromptTitle = { fg = colors.base, bg = colors.mauve },
+          TelescopeResultsTitle = { fg = colors.base, bg = colors.mauve },
+          TelescopePreviewTitle = { fg = colors.base, bg = colors.mauve },
+          TelescopeTitle = { fg = colors.base, bg = colors.mauve },
         }
       end,
     }
