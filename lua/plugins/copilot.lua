@@ -7,6 +7,7 @@ return {
       require('copilot').setup {
         panel = { enabled = false },
         suggestion = {
+          hide_during_completion = false,
           auto_trigger = true,
         },
       }
