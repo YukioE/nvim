@@ -6,7 +6,10 @@ function Map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
+-- searching
 Map('n', '<Esc>', '<cmd>nohlsearch<CR>')
+Map('n', 'n', 'nzz')
+Map('n', 'N', 'Nzz')
 
 Map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -71,7 +74,7 @@ Map('n', '<leader>bd', delete_buffer, { desc = 'close [B]uffer' })
 
 -- saving & quitting
 Map('n', '<C-s>', ':w<CR>', { desc = 'write Buffer' })
-Map('n', '<leader>qq', ':qa!<CR>', { desc = 'quit all without saving' })
+Map('n', '<leader>q', ':qa!<CR>', { desc = 'quit all without saving' })
 
 -- moving lines up/down/left/right in visual mode
 Map('v', 'J', ":m '>+1<CR>gv=gv")
