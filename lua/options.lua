@@ -16,6 +16,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
+vim.opt.conceallevel = 2
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
@@ -26,8 +27,27 @@ vim.o.expandtab = true
 if vim.g.neovide then
   vim.o.guifont = 'JetBrainsMono Nerd Font:h14'
   vim.g.neovide_scale_factor = 0.8
+  vim.g.neovide_hide_mouse_when_typing = true
 end
 
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
+
+-- disable terminal linenumbers
+vim.api.nvim_create_autocmd('TermOpen', {
+  group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end,
+})
+
+-- highlight yanking
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})

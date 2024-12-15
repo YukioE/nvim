@@ -70,7 +70,7 @@ end
 
 Map('n', '<S-h>', '<cmd>bprevious<cr>', { desc = 'prev Buffer' })
 Map('n', '<S-l>', '<cmd>bnext<cr>', { desc = 'next Buffer' })
-Map('n', '<leader>bd', delete_buffer, { desc = 'close [B]uffer' })
+Map('n', '<leader>f', delete_buffer, { desc = 'close [B]uffer' })
 
 -- saving & quitting
 Map('n', '<C-s>', ':w<CR>', { desc = 'write Buffer' })
@@ -100,12 +100,3 @@ end, { desc = 'Open 3-way merge tool' })
 -- Markdown
 Map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', { desc = 'start Markdown preview' })
 Map('n', '<leader>so', ':ObsidianQuickSwitch<CR>', { desc = 'open Quick switcher' })
-
--- highlight yanking
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
