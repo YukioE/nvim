@@ -10,8 +10,14 @@ end
 Map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 Map('n', 'n', 'nzz')
 Map('n', 'N', 'Nzz')
+Map('n', '}', '}zz')
+Map('n', '{', '{zz')
+Map('n', ']c', ']czz')
+Map('n', '[c', '[czz')
 
 Map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+Map('n', '<leader>,', '<cmd>cp<CR>', { desc = 'goto previous Quickfix entry' })
+Map('n', '<leader>.', '<cmd>cn<CR>', { desc = 'goto next Quickfix entry' })
 
 Map('n', '<C-a>', function()
   vim.cmd '%y+'

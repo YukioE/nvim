@@ -35,6 +35,7 @@ return {
             },
           },
           sorting_strategy = 'ascending',
+          path_display = { 'tail' },
         },
         -- pickers = {}
         extensions = {
