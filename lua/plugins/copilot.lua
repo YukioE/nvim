@@ -7,6 +7,9 @@ return {
       require('copilot').setup {
         panel = { enabled = false },
         suggestion = {
+          keymap = {
+            accept = '<C-CR>',
+          },
           hide_during_completion = false,
           auto_trigger = true,
         },
