@@ -51,3 +51,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- create custom command to copy full path
+vim.api.nvim_create_user_command('CopyFullPath', function()
+  local full_path = vim.fn.expand '%:p'
+  vim.fn.setreg('+', full_path)
+  print('Copied to clipboard: ' .. full_path)
+end, {})
