@@ -6,7 +6,7 @@ function Map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- searching
+-- searching & centering
 Map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 Map('n', 'n', 'nzz')
 Map('n', 'N', 'Nzz')
@@ -20,10 +20,16 @@ Map('n', ']m', ']mzz')
 Map('n', '[m', '[mzz')
 Map('n', ']M', ']Mzz')
 Map('n', '[M', '[Mzz')
+Map('n', 'j', 'jzz')
+Map('n', 'k', 'kzz')
 
 Map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 Map('n', '<leader>,', '<cmd>cp<CR>', { desc = 'goto previous Quickfix entry' })
 Map('n', '<leader>.', '<cmd>cn<CR>', { desc = 'goto next Quickfix entry' })
+
+Map('n', '<leader>tr', function()
+  vim.wo.relativenumber = not vim.wo.relativenumber
+end, { desc = 'toggle [R]elative line numbers' })
 
 Map('n', '<C-a>', function()
   vim.cmd '%y+'
