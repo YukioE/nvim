@@ -34,7 +34,7 @@ end, { desc = 'toggle [R]elative line numbers' })
 Map('n', '<C-a>', function()
   vim.cmd '%y+'
 end, { desc = 'yank whole Buffer to system clipboard' })
-vim.keymap.set('n', '<Leader>dc', '<cmd>CopyFullPath<CR>', { desc = 'Copy file path to clipboard' })
+vim.keymap.set('n', '<Leader>dc', '<cmd>CopyFullPath<CR>', { desc = 'Copy file path to clipboard', silent = true })
 
 -- moving focus between windows
 Map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
