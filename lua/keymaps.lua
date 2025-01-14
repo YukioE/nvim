@@ -22,6 +22,8 @@ Map('n', ']M', ']Mzz')
 Map('n', '[M', '[Mzz')
 Map('n', 'j', 'jzz')
 Map('n', 'k', 'kzz')
+Map('n', 'G', 'Gzz')
+Map('n', 'gg', 'ggzz')
 
 Map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 Map('n', '<leader>,', '<cmd>cp<CR>', { desc = 'goto previous Quickfix entry' })
