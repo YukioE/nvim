@@ -8,7 +8,7 @@ return {
     workspaces = {
       {
         name = '1',
-        path = '~/basereality22/n e t s p h e r e/',
+        path = '~/basereality22/netsphere/',
       },
     },
   },
