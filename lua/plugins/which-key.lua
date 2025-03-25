@@ -63,7 +63,7 @@ return {
         { '<leader>t', group = '[T]oggle' },
         { '<leader>l', group = '[L]sp' },
         { '<leader>b', group = '[B]uffers' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>g', group = '[G]it', mode = { 'n', 'v' } },
         { '<leader>m', group = '[M]erge' },
       },
     },
