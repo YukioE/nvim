@@ -1,5 +1,5 @@
 require('lazy').setup {
-  { import = 'plugins' },
+    { import = 'plugins' },
 }
 --   , {
 --     ui = {
