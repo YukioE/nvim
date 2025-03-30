@@ -1,9 +1,9 @@
 function Map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.keymap.set(mode, lhs, rhs, options)
+    local options = { noremap = true, silent = true }
+    if opts then
+        options = vim.tbl_extend('force', options, opts)
+    end
+    vim.keymap.set(mode, lhs, rhs, options)
 end
 
 -- searching & centering
@@ -30,11 +30,11 @@ Map('n', '<leader>,', '<cmd>cp<CR>', { desc = 'goto previous Quickfix entry' })
 Map('n', '<leader>.', '<cmd>cn<CR>', { desc = 'goto next Quickfix entry' })
 
 Map('n', '<leader>tr', function()
-  vim.wo.relativenumber = not vim.wo.relativenumber
+    vim.wo.relativenumber = not vim.wo.relativenumber
 end, { desc = 'toggle [R]elative line numbers' })
 
 Map('n', '<C-a>', function()
-  vim.cmd '%y+'
+    vim.cmd '%y+'
 end, { desc = 'yank whole Buffer to system clipboard' })
 vim.keymap.set('n', '<Leader>bc', '<cmd>CopyFullPath<CR>', { desc = 'Copy file path to clipboard', silent = true })
 
@@ -67,26 +67,26 @@ Map('n', '<leader>bm', '<C-W>=', { desc = 'size Windows equally' })
 
 -- buffer utils
 local function delete_buffer()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local buf_type = vim.bo[bufnr].buftype
+    local bufnr = vim.api.nvim_get_current_buf()
+    local buf_type = vim.bo[bufnr].buftype
 
-  if vim.bo[bufnr].modified then
-    local choice = vim.fn.confirm('Buffer has unsaved changes. Save before closing?', '&Yes\n&No\n&Cancel', 1)
-    if choice == 1 then
-      vim.cmd 'write' -- Save the buffer
-    elseif choice == 2 then
-      vim.cmd 'bd!' -- Discard changes and force-delete buffer
-      return
-    elseif choice == 3 then
-      return -- Cancel
+    if vim.bo[bufnr].modified then
+        local choice = vim.fn.confirm('Buffer has unsaved changes. Save before closing?', '&Yes\n&No\n&Cancel', 1)
+        if choice == 1 then
+            vim.cmd 'write' -- Save the buffer
+        elseif choice == 2 then
+            vim.cmd 'bd!' -- Discard changes and force-delete buffer
+            return
+        elseif choice == 3 then
+            return -- Cancel
+        end
     end
-  end
 
-  if buf_type == 'terminal' then
-    vim.cmd 'bd!'
-  else
-    vim.cmd 'bd'
-  end
+    if buf_type == 'terminal' then
+        vim.cmd 'bd!'
+    else
+        vim.cmd 'bd'
+    end
 end
 
 Map('n', '<S-h>', '<cmd>bprevious<cr>', { desc = 'prev Buffer' })
@@ -113,9 +113,9 @@ Map('n', '<leader>mh', '<cmd>diffget //2<CR>', { desc = 'accept LOCAL change (LE
 Map('n', '<leader>ml', '<cmd>diffget //3<CR>', { desc = 'accept REMOTE change (RIGHT)' })
 Map('n', '<leader>mw', '<cmd>Gwrite<CR>', { desc = 'write and stage file' })
 Map('n', '<leader>md', function()
-  vim.cmd 'Ghdiffsplit :2|Gvdiffsplit :3'
-  vim.cmd 'wincmd k'
-  vim.api.nvim_feedkeys(']c', 'n', true)
+    vim.cmd 'Ghdiffsplit :2|Gvdiffsplit :3'
+    vim.cmd 'wincmd k'
+    vim.api.nvim_feedkeys(']c', 'n', true)
 end, { desc = 'Open 3-way merge tool' })
 
 -- Markdown
