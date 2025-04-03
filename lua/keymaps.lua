@@ -29,6 +29,11 @@ Map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]u
 Map('n', '<leader>,', '<cmd>cp<CR>', { desc = 'goto previous Quickfix entry' })
 Map('n', '<leader>.', '<cmd>cn<CR>', { desc = 'goto next Quickfix entry' })
 
+Map('n', '<leader>td', function()
+    local current = vim.diagnostic.config().virtual_lines
+    vim.diagnostic.config({ virtual_lines = not current })
+end, { desc = 'toggle [D]iagnostics' })
+
 Map('n', '<leader>tr', function()
     vim.wo.relativenumber = not vim.wo.relativenumber
 end, { desc = 'toggle [R]elative line numbers' })
