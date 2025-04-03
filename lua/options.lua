@@ -34,6 +34,12 @@ vim.schedule(function()
     vim.opt.clipboard = 'unnamedplus'
 end)
 
+-- virtual lines for diagnostics
+vim.diagnostic.config {
+    virtual_lines = true,
+    severity_sort = true,
+}
+
 -- disable terminal linenumbers
 vim.api.nvim_create_autocmd('TermOpen', {
     group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
