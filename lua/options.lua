@@ -36,7 +36,7 @@ end)
 
 -- virtual lines for diagnostics
 vim.diagnostic.config {
-    virtual_lines = true,
+    virtual_lines = { current_line = true },
     severity_sort = true,
 }
 
