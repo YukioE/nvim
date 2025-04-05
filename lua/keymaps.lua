@@ -24,6 +24,7 @@ Map('n', 'j', 'jzz')
 Map('n', 'k', 'kzz')
 Map('n', 'G', 'Gzz')
 Map('n', 'gg', 'ggzz')
+Map('n', '<C-T>', '<C-T>zz')
 
 Map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 Map('n', '<leader>,', '<cmd>cp<CR>', { desc = 'goto previous Quickfix entry' })
@@ -31,7 +32,7 @@ Map('n', '<leader>.', '<cmd>cn<CR>', { desc = 'goto next Quickfix entry' })
 
 Map('n', '<leader>td', function()
     local current = vim.diagnostic.config().virtual_lines
-    vim.diagnostic.config({ virtual_lines = not current })
+    vim.diagnostic.config { virtual_lines = not current }
 end, { desc = 'toggle [D]iagnostics' })
 
 Map('n', '<leader>tr', function()
@@ -94,8 +95,8 @@ local function delete_buffer()
     end
 end
 
-Map('n', '<S-h>', '<cmd>bprevious<cr>', { desc = 'prev Buffer' })
-Map('n', '<S-l>', '<cmd>bnext<cr>', { desc = 'next Buffer' })
+Map('n', '<S-h>', '<cmd>bprevious<cr>zz', { desc = 'prev Buffer' })
+Map('n', '<S-l>', '<cmd>bnext<cr>zz', { desc = 'next Buffer' })
 Map('n', '<leader>f', delete_buffer, { desc = 'close [B]uffer' })
 
 -- saving & quitting
