@@ -29,6 +29,9 @@ return {
                         vim.cmd.normal { ']c', bang = true }
                     else
                         gitsigns.nav_hunk 'next'
+                        vim.defer_fn(function()
+                            vim.cmd.normal { 'zz', bang = true }
+                        end, 10)
                     end
                 end, { desc = 'Jump to next git [c]hange' })
 
@@ -37,6 +40,9 @@ return {
                         vim.cmd.normal { '[c', bang = true }
                     else
                         gitsigns.nav_hunk 'prev'
+                        vim.defer_fn(function()
+                            vim.cmd.normal { 'zz', bang = true }
+                        end, 10)
                     end
                 end, { desc = 'Jump to previous git [c]hange' })
 
