@@ -29,8 +29,11 @@ Map('n', '<leader>,', '<cmd>cp<CR>', { desc = 'goto previous Quickfix entry' })
 Map('n', '<leader>.', '<cmd>cn<CR>', { desc = 'goto next Quickfix entry' })
 
 Map('n', '<leader>td', function()
-    local current = vim.diagnostic.config().virtual_lines
-    vim.diagnostic.config { virtual_lines = not current }
+    local config = vim.diagnostic.config().virtual_lines or {}
+    local current = config.current_line or false
+    vim.diagnostic.config {
+        virtual_lines = { current_line = not current },
+    }
 end, { desc = 'toggle [D]iagnostics' })
 
 Map('n', '<leader>tr', function()
