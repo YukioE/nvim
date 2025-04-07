@@ -37,7 +37,7 @@ return {
                         },
                     },
                     sorting_strategy = 'ascending',
-                    path_display = { truncate = 3 },
+                    path_display = { 'smart' },
                 },
                 -- pickers = {}
                 extensions = {
