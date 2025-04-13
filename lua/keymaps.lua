@@ -23,6 +23,8 @@ Map('n', 'k', 'kzz')
 Map('n', 'G', 'Gzz')
 Map('n', 'gg', 'ggzz')
 Map('n', '<C-T>', '<C-T>zz')
+Map('n', '<C-D>', '<C-D>zz')
+Map('n', '<C-U>', '<C-U>zz')
 
 Map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 Map('n', '<leader>,', '<cmd>cp<CR>', { desc = 'goto previous Quickfix entry' })
@@ -40,7 +42,7 @@ Map('n', '<leader>tr', function()
     vim.wo.relativenumber = not vim.wo.relativenumber
 end, { desc = 'toggle [R]elative line numbers' })
 
-Map('n', '<C-a>', function()
+Map('n', '<C-S-a>', function()
     vim.cmd '%y+'
 end, { desc = 'yank whole Buffer to system clipboard' })
 vim.keymap.set('n', '<Leader>bc', '<cmd>CopyFullPath<CR>', { desc = 'Copy file path to clipboard', silent = true })
