@@ -21,7 +21,18 @@ return {
         opts = {
             keymap = { preset = 'enter' },
             appearance = { nerd_font_variant = 'mono' },
-            completion = { documentation = { auto_show = true } },
+            completion = {
+                documentation = { auto_show = true },
+                menu = {
+                    draw = {
+                        columns = {
+                            { 'kind_icon', gap = 1 },
+                            { 'label', 'label_description', gap = 1 },
+                            { 'kind', 'source_name', gap = 1 },
+                        },
+                    },
+                },
+            },
             sources = {
                 default = { 'lsp', 'path', 'snippets', 'buffer' },
             },
