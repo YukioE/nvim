@@ -6,8 +6,9 @@ function Map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- searching & centering
 Map('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- centering
 Map('n', 'n', 'nzz')
 Map('n', 'N', 'Nzz')
 Map('n', '}', '}zz')
