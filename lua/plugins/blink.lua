@@ -28,7 +28,7 @@ return {
                         columns = {
                             { 'kind_icon', gap = 1 },
                             { 'label', 'label_description', gap = 1 },
-                            { 'kind', 'source_name', gap = 1 },
+                            { 'kind', gap = 1 },
                         },
                     },
                 },
@@ -37,6 +37,7 @@ return {
                 default = { 'lsp', 'path', 'snippets', 'buffer' },
             },
             fuzzy = { implementation = 'prefer_rust_with_warning' },
+            signature = { enabled = true },
         },
         opts_extend = { 'sources.default' },
     },
