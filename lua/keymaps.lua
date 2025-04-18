@@ -1,4 +1,4 @@
-function Map(mode, lhs, rhs, opts)
+local function map(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }
     if opts then
         options = vim.tbl_extend('force', options, opts)
@@ -6,74 +6,66 @@ function Map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
-Map('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- centering
-Map('n', 'n', 'nzz')
-Map('n', 'N', 'Nzz')
-Map('n', '}', '}zz')
-Map('n', '{', '{zz')
-Map('n', ']d', ':lua vim.diagnostic.goto_next({ float = false })<CR>zz', { desc = 'goto next [D]iagnostic' })
-Map('n', '[d', ':lua vim.diagnostic.goto_prev({ float = false })<CR>zz', { desc = 'goto previous [D]iagnostic' })
-Map('n', ']m', ']mzz')
-Map('n', '[m', '[mzz')
-Map('n', ']M', ']Mzz')
-Map('n', '[M', '[Mzz')
-Map('n', 'j', 'jzz')
-Map('n', 'k', 'kzz')
-Map('n', 'G', 'Gzz')
-Map('n', 'gg', 'ggzz')
-Map('n', '<C-T>', '<C-T>zz')
-Map('n', '<C-D>', '<C-D>zz')
-Map('n', '<C-U>', '<C-U>zz')
+map('n', 'n', 'nzz')
+map('n', 'N', 'Nzz')
+map('n', '}', '}zz')
+map('n', '{', '{zz')
+map('n', ']d', ':lua vim.diagnostic.goto_next({ float = false })<CR>zz', { desc = 'goto next [D]iagnostic' })
+map('n', '[d', ':lua vim.diagnostic.goto_prev({ float = false })<CR>zz', { desc = 'goto previous [D]iagnostic' })
+map('n', ']m', ']mzz')
+map('n', '[m', '[mzz')
+map('n', ']M', ']Mzz')
+map('n', '[M', '[Mzz')
+map('n', 'j', 'jzz')
+map('n', 'k', 'kzz')
+map('n', 'G', 'Gzz')
+map('n', 'gg', 'ggzz')
+map('n', '<C-T>', '<C-T>zz')
+map('n', '<C-D>', '<C-D>zz')
+map('n', '<C-U>', '<C-U>zz')
 
-Map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-Map('n', '<leader>,', '<cmd>cp<CR>', { desc = 'goto previous Quickfix entry' })
-Map('n', '<leader>.', '<cmd>cn<CR>', { desc = 'goto next Quickfix entry' })
+map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+map('n', '<leader>,', '<cmd>cp<CR>', { desc = 'goto previous Quickfix entry' })
+map('n', '<leader>.', '<cmd>cn<CR>', { desc = 'goto next Quickfix entry' })
 
-Map('n', '<leader>td', function()
-    local config = vim.diagnostic.config().virtual_lines or {}
-    local current = config.current_line or false
-    vim.diagnostic.config {
-        virtual_lines = { current_line = not current },
-    }
-end, { desc = 'toggle [D]iagnostics' })
-
-Map('n', '<leader>tr', function()
+map('n', '<leader>tr', function()
     vim.wo.relativenumber = not vim.wo.relativenumber
 end, { desc = 'toggle [R]elative line numbers' })
 
-Map('n', '<C-S-a>', function()
+map('n', '<C-S-a>', function()
     vim.cmd '%y+'
 end, { desc = 'yank whole Buffer to system clipboard' })
 vim.keymap.set('n', '<Leader>bc', '<cmd>CopyFullPath<CR>', { desc = 'Copy file path to clipboard', silent = true })
 
 -- moving focus between windows
-Map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-Map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-Map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-Map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-Map('t', '<C-h>', '<cmd>wincmd h<CR>')
-Map('t', '<C-j>', '<cmd>wincmd j<CR>')
-Map('t', '<C-k>', '<cmd>wincmd k<CR>')
-Map('t', '<C-l>', '<cmd>wincmd l<CR>')
+map('t', '<C-h>', '<cmd>wincmd h<CR>')
+map('t', '<C-j>', '<cmd>wincmd j<CR>')
+map('t', '<C-k>', '<cmd>wincmd k<CR>')
+map('t', '<C-l>', '<cmd>wincmd l<CR>')
 
 -- resizing windows
-Map('n', '<C-Up>', ':resize -2<CR>')
-Map('n', '<C-Down>', ':resize +2<CR>')
-Map('n', '<C-Left>', ':vertical resize -2<CR>')
-Map('n', '<C-Right>', ':vertical resize +2<CR>')
+map('n', '<C-Up>', ':resize -2<CR>')
+map('n', '<C-Down>', ':resize +2<CR>')
+map('n', '<C-Left>', ':vertical resize -2<CR>')
+map('n', '<C-Right>', ':vertical resize +2<CR>')
 
-Map('t', '<C-Up>', '<cmd>resize -2<CR>')
-Map('t', '<C-Down>', '<cmd>resize +2<CR>')
-Map('t', '<C-Left>', '<cmd>vertical resize -2<CR>')
-Map('t', '<C-Right>', '<cmd>vertical resize +2<CR>')
+map('t', '<C-Up>', '<cmd>resize -2<CR>')
+map('t', '<C-Down>', '<cmd>resize +2<CR>')
+map('t', '<C-Left>', '<cmd>vertical resize -2<CR>')
+map('t', '<C-Right>', '<cmd>vertical resize +2<CR>')
 
 -- window management
 -- use native commands (CTRL w + s, v, q) for splitting / deleting windows
-Map('n', '<leader>bM', '<C-W>|<C-W>_', { desc = 'maximize Window' })
-Map('n', '<leader>bm', '<C-W>=', { desc = 'size Windows equally' })
+map('n', '<leader>bM', '<C-W>|<C-W>_', { desc = 'maximize Window' })
+map('n', '<leader>bm', '<C-W>=', { desc = 'size Windows equally' })
 
 -- buffer utils
 local function delete_buffer()
@@ -99,35 +91,35 @@ local function delete_buffer()
     end
 end
 
-Map('n', '<S-h>', '<cmd>bprevious<cr>zz', { desc = 'prev Buffer' })
-Map('n', '<S-l>', '<cmd>bnext<cr>zz', { desc = 'next Buffer' })
-Map('n', '<leader>f', delete_buffer, { desc = 'close [B]uffer' })
+map('n', '<S-h>', '<cmd>bprevious<cr>zz', { desc = 'prev Buffer' })
+map('n', '<S-l>', '<cmd>bnext<cr>zz', { desc = 'next Buffer' })
+map('n', '<leader>f', delete_buffer, { desc = 'close [B]uffer' })
 
 -- saving & quitting
-Map('n', '<C-s>', ':w<CR>', { desc = 'write Buffer' })
-Map('n', '<leader>q', ':qa!<CR>', { desc = 'quit all without saving' })
+map('n', '<C-s>', ':w<CR>', { desc = 'write Buffer' })
+map('n', '<leader>q', ':qa!<CR>', { desc = 'quit all without saving' })
 
 -- moving lines up/down/left/right in visual mode
-Map('v', 'J', ":m '>+1<CR>gv=gv")
-Map('v', 'K', ":m '<-2<CR>gv=gv")
-Map('v', '<', '<gv')
-Map('v', '>', '>gv')
+map('v', 'J', ":m '>+1<CR>gv=gv")
+map('v', 'K', ":m '<-2<CR>gv=gv")
+map('v', '<', '<gv')
+map('v', '>', '>gv')
 
 -- Terminal
-Map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-Map('n', '<leader>tt', '<cmd>ter<CR>', { desc = 'open [T]erminal' })
-Map('n', '<leader>tl', '<cmd>ter lazygit<CR>an<CR>', { desc = 'open lazygit in terminal' })
+map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+map('n', '<leader>tt', '<cmd>ter<CR>', { desc = 'open [T]erminal' })
+map('n', '<leader>tl', '<cmd>ter lazygit<CR>an<CR>', { desc = 'open lazygit in terminal' })
 
 -- git mergetool
-Map('n', '<leader>mh', '<cmd>diffget //2<CR>', { desc = 'accept LOCAL change (LEFT)' })
-Map('n', '<leader>ml', '<cmd>diffget //3<CR>', { desc = 'accept REMOTE change (RIGHT)' })
-Map('n', '<leader>mw', '<cmd>Gwrite<CR>', { desc = 'write and stage file' })
-Map('n', '<leader>md', function()
+map('n', '<leader>mh', '<cmd>diffget //2<CR>', { desc = 'accept LOCAL change (LEFT)' })
+map('n', '<leader>ml', '<cmd>diffget //3<CR>', { desc = 'accept REMOTE change (RIGHT)' })
+map('n', '<leader>mw', '<cmd>Gwrite<CR>', { desc = 'write and stage file' })
+map('n', '<leader>md', function()
     vim.cmd 'Ghdiffsplit :2|Gvdiffsplit :3'
     vim.cmd 'wincmd k'
     vim.api.nvim_feedkeys(']c', 'n', true)
 end, { desc = 'Open 3-way merge tool' })
 
 -- Markdown
-Map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', { desc = 'start Markdown preview' })
-Map('n', '<leader>so', ':ObsidianQuickSwitch<CR>', { desc = 'open Quick switcher' })
+map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', { desc = 'start Markdown preview' })
+map('n', '<leader>so', ':ObsidianQuickSwitch<CR>', { desc = 'open Quick switcher' })
