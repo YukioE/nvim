@@ -5,7 +5,16 @@ return {
         { 'echasnovski/mini.icons', opts = {} },
     },
     keys = {
-        { '\\', '<CMD>Oil<CR>', desc = 'Oil: Open file explorer', silent = true },
+        {
+            '\\',
+            function()
+                require('oil').open(nil, {
+                    preview = { vertical = true },
+                })
+            end,
+            desc = 'Oil: Open file explorer',
+            silent = true,
+        },
     },
     opts = {
         default_file_explorer = true,
@@ -21,7 +30,7 @@ return {
             autosave_changes = false,
         },
         view_options = {
-            show_hidden = false,
+            show_hidden = true,
             is_hidden_file = function(name)
                 return name:sub(1, 1) == '.'
             end,
@@ -33,19 +42,6 @@ return {
                 { 'type', 'asc' },
                 { 'name', 'asc' },
             },
-        },
-        keymaps = {
-            ['-'] = { 'actions.parent', mode = 'n' },
-            ['<CR>'] = 'actions.select',
-            ['<C-s>'] = { 'actions.select', opts = { vertical = true } },
-            ['<C-h>'] = { 'actions.select', opts = { horizontal = true } },
-            ['<C-t>'] = { 'actions.select', opts = { tab = true } },
-            ['<C-c>'] = { 'actions.close', mode = 'n' },
-            ['<C-l>'] = 'actions.refresh',
-            ['g?'] = { 'actions.show_help', mode = 'n' },
-            ['gx'] = 'actions.open_external',
-            ['g.'] = { 'actions.toggle_hidden', mode = 'n' },
-            ['g\\'] = { 'actions.toggle_trash', mode = 'n' },
         },
     },
     init = function()
