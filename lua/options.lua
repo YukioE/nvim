@@ -17,6 +17,7 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.conceallevel = 2
+vim.opt.shada = [['100,<50,s10,h]]
 vim.o.foldmethod = 'indent'
 vim.o.foldlevelstart = 99
 vim.o.tabstop = 4
