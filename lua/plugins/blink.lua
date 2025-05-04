@@ -19,7 +19,12 @@ return {
             },
         },
         opts = {
-            keymap = { preset = 'enter' },
+            keymap = {
+                preset = 'enter',
+
+                ['<Tab>'] = { 'select_next', 'fallback' },
+                ['<S-Tab>'] = { 'select_prev', 'fallback' },
+            },
             appearance = { nerd_font_variant = 'mono' },
             completion = {
                 documentation = { auto_show = true },
