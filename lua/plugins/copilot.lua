@@ -18,10 +18,7 @@ return {
     },
 
     {
-        'zbirenbaum/copilot-cmp',
+        'fang2hou/blink-copilot',
         after = { 'copilot.lua' },
-        config = function()
-            require('copilot_cmp').setup()
-        end,
     },
 }
