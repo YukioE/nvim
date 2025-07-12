@@ -13,8 +13,6 @@ map('n', 'n', 'nzz')
 map('n', 'N', 'Nzz')
 map('n', '}', '}zz')
 map('n', '{', '{zz')
-map('n', ']d', ':lua vim.diagnostic.goto_next({ float = false })<CR>zz', { desc = 'goto next [D]iagnostic' })
-map('n', '[d', ':lua vim.diagnostic.goto_prev({ float = false })<CR>zz', { desc = 'goto previous [D]iagnostic' })
 map('n', ']m', ']mzz')
 map('n', '[m', '[mzz')
 map('n', ']M', ']Mzz')
@@ -26,6 +24,8 @@ map('n', 'gg', 'ggzz')
 map('n', '<C-T>', '<C-T>zz')
 map('n', '<C-D>', '<C-D>zz')
 map('n', '<C-U>', '<C-U>zz')
+map('n', ']d', ':lua vim.diagnostic.goto_next({ float = false })<CR>zz', { desc = 'goto next [D]iagnostic' })
+map('n', '[d', ':lua vim.diagnostic.goto_prev({ float = false })<CR>zz', { desc = 'goto previous [D]iagnostic' })
 
 map('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 map('n', '<leader>,', '<cmd>cp<CR>', { desc = 'goto previous Quickfix entry' })
@@ -94,10 +94,7 @@ end
 map('n', '<S-h>', '<cmd>bprevious<cr>zz', { desc = 'prev Buffer' })
 map('n', '<S-l>', '<cmd>bnext<cr>zz', { desc = 'next Buffer' })
 map('n', '<leader>f', delete_buffer, { desc = 'close [B]uffer' })
-
--- saving & quitting
-map('n', '<C-s>', ':w<CR>', { desc = 'write Buffer' })
-map('n', '<leader>q', ':qa!<CR>', { desc = 'quit all without saving' })
+map('n', '<C-s>', ':w!<CR>', { desc = 'write Buffer' })
 
 -- moving lines up/down/left/right in visual mode
 map('v', 'J', ":m '>+1<CR>gv=gv")
