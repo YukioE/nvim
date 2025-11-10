@@ -3,3 +3,17 @@ vim.g.maplocalleader = " "
 
 require("options")
 require("keymaps")
+require("colorscheme")
+require("autocmds")
+require("lsp")
+
+require("plugins.oil")
+require("plugins.which-key")
+require("plugins.telescope")
+require("plugins.blink")
+require("plugins.autopairs")
+require("plugins.treesitter")
+require("plugins.lualine")
+require("plugins.gitsigns")
+
+--vim.pack.update()
