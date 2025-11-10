@@ -4,10 +4,6 @@
       "rev": "40380e7",
       "src": "https://github.com/saghen/blink.cmp"
     },
-    "custom-theme.nvim": {
-      "rev": "75b5535",
-      "src": "https://github.com/Djancyp/custom-theme.nvim"
-    },
     "gitsigns.nvim": {
       "rev": "20ad441",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
@@ -28,10 +24,6 @@
       "rev": "ad7146a",
       "src": "https://github.com/mason-org/mason.nvim"
     },
-    "mini.icons": {
-      "rev": "ff2e4f1",
-      "src": "https://github.com/nvim-mini/mini.icons"
-    },
     "nvim": {
       "rev": "234fc04",
       "src": "https://github.com/catppuccin/nvim"
@@ -47,6 +39,10 @@
     "nvim-treesitter": {
       "rev": "42fc28ba",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-ts-autotag": {
+      "rev": "c4ca798",
+      "src": "https://github.com/windwp/nvim-ts-autotag"
     },
     "nvim-web-devicons": {
       "rev": "8dcb311",
