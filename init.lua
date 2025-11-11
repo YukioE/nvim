@@ -17,4 +17,6 @@ require("plugins.treesitter")
 require("plugins.lualine")
 require("plugins.gitsigns")
 
+vim.cmd("cd ~")
+
 --vim.pack.update()

@@ -24,6 +24,10 @@
       "rev": "ad7146a",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "none-ls.nvim": {
+      "rev": "5501975",
+      "src": "https://github.com/nvimtools/none-ls.nvim"
+    },
     "nvim": {
       "rev": "234fc04",
       "src": "https://github.com/catppuccin/nvim"
