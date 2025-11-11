@@ -19,3 +19,10 @@ o.scrolloff = 10
 o.winborder = "rounded"
 o.splitright = true
 o.splitbelow = true
+
+-- neovide
+if vim.g.neovide then
+    vim.o.guifont = 'JetBrainsMono Nerd Font:h14'
+    vim.g.neovide_scale_factor = 0.8
+    vim.g.neovide_hide_mouse_when_typing = true
+end
